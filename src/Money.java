@@ -24,15 +24,19 @@ public class Money {
 		this.cents = other.cents;
 	}
 	
-	public double add(int dollars, int cents){
-		//da fuck do i do here
+	public void add(int dollars, int cents){
+		centsInDollars = (cents/100);
+		centsRemaining = cents%100;
+		newDollars = centsInDollars + centsRemaining;
 	}
 
 	public void setMoney(int dollars, int cents){
-		//dunno
+			this.dollars = dollars;
+			this.cents = this.cents;
+			
 	}
 	public double getMoney(){
-		//return a double
+		return newDollars;
 	}
 	
 	public double getDollars(){
@@ -44,6 +48,6 @@ public class Money {
 	}
 	
 	public String toString(){
-		return "$" + this.getMoney();
+		return "$" + String.format("%.2f", this.getMoney();
 	}
 }
