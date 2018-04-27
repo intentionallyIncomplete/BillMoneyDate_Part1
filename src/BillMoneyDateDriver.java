@@ -45,8 +45,17 @@ public class BillMoneyDateDriver
 		/****************************************************/
 		/* Testing the Date class */
 		/****************************************************/
-		Date date = new Date(1,10,2016);
-		System.out.println(date);
+		//feed in day --> month --> year
+		//print out month --> day --> year
+		Date date1 = new Date(1,1,2016);
+		Date date2 = new Date(2,1,2016);
+		System.out.println(date1);
+		System.out.println(date2);
+		//checking the isAfter functionality
+		//comments on method functionality in Date class
+		System.out.println(date2.isAfter(date1));
+		
+		
 
 		//Construct some bills
 		//        Money amount = new Money(20);
