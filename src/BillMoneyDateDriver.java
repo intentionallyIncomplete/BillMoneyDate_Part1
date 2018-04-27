@@ -4,7 +4,6 @@
  */
 public class BillMoneyDateDriver
 {
-
     /**
      main driver function
      pre:  none
@@ -13,17 +12,36 @@ public class BillMoneyDateDriver
     public static void main(String[] args)
     {
         //Construct some money
-        Money money1 = new Money(10, 50);
-        //Money money2 = new Money(money1);
+        Money money1 = new Money(10);
+        //Money money1 = new Money(10,1);
+        //Money money1 = new Money(10,99);
+        //Money money1 = new Money(10,101);
+        Money money2 = new Money(12);
+        
+        //useful for when needed but using two objects to play with seemed to work out alright.
+        //Money money3 = new Money(11);
+        
         //money1.setMoney(30,50);
-        //TODO: do more functional exercises with the money class
 	    
-	    
+        //print out the two test objects
         System.out.println("Money objects output:");
         System.out.println(money1);
-        //System.out.println(money2);
-	
-	
+        System.out.println(money2);
+        
+        /****************************************************/
+        /* Checking the equals() method by setting money1	*/
+        /* to an amount, and then money2 to another or the 	*/
+        /* same. should print a statement and return		*/
+        /* true or false.									*/
+        /****************************************************/
+//        System.out.println(money1.equals(money2));
+//        money1.add(5,500);
+//        System.out.println("new money1: " + money1);
+//        money1.add(5,50);
+//        System.out.println("new money1: " + money1);
+          money1.add(money2);
+          System.out.println(money1);
+        
         //Construct some bills
 //        Money amount = new Money(20);
 //        Date dueDate = new Date(4, 30, 2007);
