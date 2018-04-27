@@ -13,14 +13,16 @@ public class Date {
 	/* set if all these conditions are met true.		 */
 	/*****************************************************/
 	public Date(int day, int month, int year){
+		
 		if(day < 1 || day > 31){
-			System.out.println("invalid day");
+			System.out.println("invalid day: " + day);
+			assert(day > 0);
 			System.exit(0);
 		}else if(month < 1 || month > 12){
-			System.out.println("invalid month");
+			System.out.println("invalid month: "+ month);
 			System.exit(0);
 		}else if(year < 2014 || year > 2024){
-			System.out.println("invalid year");
+			System.out.println("invalid year: " + year);
 			System.exit(0);
 		}else{
 			this.day = day;
@@ -42,17 +44,19 @@ public class Date {
 	/* the current one by as little as 1 day			 */
 	/*****************************************************/
 	public boolean isAfter(Date compareToDate){
-		if(compareToDate.day > this.day && compareToDate.month >= this.month
-				&& compareToDate.year >= this.year){
+		if(compareToDate.day > day && compareToDate.month >= month
+				&& compareToDate.year >= year){
 			return true;
 		}else{
 			return false;
 		}
 	}
 
-
+	//checking for equivalence
 	public boolean equals(Object date){
-		if(this.equals(date)){
+		//using the custom toString method on both
+		//objects is necessary to compare them
+		if(this.toString().equals(date.toString())){
 			System.out.println("the two dates are the same");
 			return true;
 		}else{

@@ -48,14 +48,19 @@ public class BillMoneyDateDriver
 		//feed in day --> month --> year
 		//print out month --> day --> year
 		Date date1 = new Date(1,1,2016);
-		Date date2 = new Date(2,1,2016);
+		Date date2 = new Date(1,1,2016);
+		
+		assert(date1 != null);
+		assert(date2 != null);
+		
 		System.out.println(date1);
 		System.out.println(date2);
+		
 		//checking the isAfter functionality
 		//comments on method functionality in Date class
-		System.out.println(date2.isAfter(date1));
+		//System.out.println(date2.isAfter(date1));
 		
-		
+		System.out.println(date2.equals(date1));
 
 		//Construct some bills
 		//        Money amount = new Money(20);
