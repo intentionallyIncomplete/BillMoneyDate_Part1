@@ -25,6 +25,11 @@ public class Money {
 		this.cents = other.cents;
 	}
 	
+	//if the current object's return value
+	//is equal to the one compared against, 
+	//print a message and return true,
+	//else print a different message and return false.
+	//the equals method here compares them as doubles.
 	public boolean equals(Object o){
 		if(this == o){
 			System.out.println("The amount " + this + " is equal to " + o);
@@ -35,20 +40,30 @@ public class Money {
 		}
 	}
 	
+	//will take in dollar amount
+	//and add to current count.
 	public void add(int dollars){
 		this.dollars += dollars;
 	}
 
+	//takes in dollars and cents to add their sums
+	//individually to the current count.
 	public void add(int dollars, int cents){
 		this.dollars += dollars;
 		this.cents = cents;
 	}
 	
+	//will add the handed Money object's value
+	//to the count of the current object's value
+	//individually for dollars and cents.
 	public void add(Money other){
 		this.dollars += other.dollars;
 		this.cents += other.cents;
 	}
 	
+	/****************************************************/
+	/* Being getters */
+	/****************************************************/
 	public double getMoney(){
 		return dollars + ((double)cents/100);
 	}
@@ -61,6 +76,9 @@ public class Money {
 		return (int)cents;
 	}
 	
+	/****************************************************/
+	/* End getters, begin setters */
+	/****************************************************/
 	public void setMoney(int dollars, int cents){
 		this.dollars = dollars;
 		//this.cents = ((double)this.cents/100);

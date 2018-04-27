@@ -44,7 +44,17 @@ public class Bill {
 	/* return false.									*/
 	/****************************************************/
 	public boolean isPaid(){
-		if(amount.getMoney() == 0){
+		if(this.amount.getMoney() == 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	//checking the current bill with an "updated"
+	//one that may have different values.
+	public boolean equals(Object toCompare){
+		if(this.toString().equals(toCompare.toString())){
 			return true;
 		}else{
 			return false;
@@ -96,7 +106,10 @@ public class Bill {
 		}
 	}
 
-	
+	//this method will take in a new Money object
+	//that has a value. Then a condition is checked
+	//that if that new value is 0, the bill is paid,
+	//else the amount is set to the latest value.
 	public boolean setAmount(Money amount){
 		if(isPaid()){
 			assert(amount != null);
@@ -110,6 +123,10 @@ public class Bill {
 	public void setOriginator(String originator){
 		this.originator = originator;
 	}
+
+	/****************************************************/
+	/* End setters */
+	/****************************************************/
 	//custom toString method will get the amount of money,
 	//the dueDate, the paidDate, and the name of the company
 	//doing the billing and tell the person the status of the 
@@ -118,9 +135,10 @@ public class Bill {
 	//else it will print the other.
 	public String toString(){
 		if(isPaid()){
+			assert(paidDate != null);
 			return "Amount Due: " + this.amount + "\nCurrent Due Date: "
 					+ this.dueDate.toString() + "\nOrigin of Bill: " + this.originator
-					+ "\nDate Paid: " + this.paidDate.toString();
+					+ "\nDate Paid: " + this.paidDate;
 		}else{
 			return "Amount Due: " + this.amount + "\nCurrent Due Date: "
 					+ this.dueDate.toString() + "\nOrigin of Bill: " + this.originator;
