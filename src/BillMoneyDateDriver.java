@@ -60,24 +60,32 @@ public class BillMoneyDateDriver
 		//comments on method functionality in Date class
 		//System.out.println(date2.isAfter(date1));
 
-		System.out.println(date2.equals(date1));
+		//System.out.println(date2.equals(date1));
+		
+		//testing the set methods for invariants
+		//date1.setDay(32);
+		date1.setMonth(13);
+		//date1.setYear(1995);
 
+		/*****************************************************/
+		/* Testing the Bill class							 */
+		/*****************************************************/
 		//Construct some bills
 		Money amount = new Money(20);
 		//day, month, year
 		Date dueDate = new Date(30, 4, 2017);
 		Bill bill1 = new Bill(amount, dueDate, "The phone company");
-		//       
-		//        Bill bill2 = new Bill(bill1);
-		//        bill2.setDueDate(new Date(5, 30, 2007));
-		//        amount.setMoney(31, 99);
-		//        dueDate.setDay(29);
-		//        Bill bill3 = new Bill(amount, dueDate, "The record company");
-		//        
+
+		Bill bill2 = new Bill(bill1);
+		//bill2.setDueDate(new Date(5, 30, 2007));
+		//amount.setMoney(31, 99);
+		//dueDate.setDay(29);
+		Bill bill3 = new Bill(amount, dueDate, "The record company");
+
 		System.out.println("Bill objects output:");
 		System.out.println(bill1);
-		//        System.out.println(bill2);
-		//        System.out.println(bill3);
+		System.out.println(bill2); //testing copy ctor
+		//System.out.println(bill3);
 
 	}
 }

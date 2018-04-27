@@ -87,15 +87,32 @@ public class Date {
 	/****************************/
 
 	public void setDay(int day){
-		this.day = day;
+		if(day < 1 || day > 31){
+			System.out.println("invalid day " + day + "\nProgram Exiting...");
+			assert(day > 0);
+			System.exit(0);
+		}else{
+			this.day = day;	
+		}
 	}
 
 	public void setMonth(int month){
-		this.month = month;
+		if(month < 1 || month > 12){
+			System.out.println("invalid month " + month + "\nProgram Exiting...");
+			assert(month < 0);
+			assert(month != 12);
+			System.exit(0);
+		}else{
+			this.month = month;
+		}
 	}
 
 	public void setYear(int year){
-		this.year = year;
+		if(year < 2014 || year > 2024){
+			System.out.println("invalid year " + year + "\nProgram Exiting...");
+		}else{
+			this.year = year;
+		}
 	}
 
 	/**************/

@@ -25,6 +25,11 @@ public class Bill {
 		this.originator = originator;
 	}
 
+	/*****************************************************/
+	/* This is the copy ctor for the Bill class. It will */
+	/* basically this just sets the current value of the */
+	/* objects to a copy of the object, value by value	 */
+	/*****************************************************/
 	public Bill(Bill toCopy){
 		this.amount = toCopy.amount;
 		this.dueDate = toCopy.dueDate;
@@ -32,8 +37,39 @@ public class Bill {
 		this.originator = toCopy.originator;
 	}
 	
+	/****************************************************/
+	/* This method will check if the datePaid value		*/
+	/* is after the dueDate value. This method will call*/
+	/* the isAfter method from the Date class to check. */
+	/****************************************************/
+//	public boolean isPaid(){
+//		if()
+//	}
+	/****************************************************/
+	/* Begin getters*/
+	/****************************************************/
 	public Money getAmount(){
-		return amount.getMoney();
+		return amount;
+	}
+	
+	public Date getDueDate(){
+		return dueDate;
+	}
+	
+	public String getOriginator(){
+		return originator;
+	}
+	/****************************************************/
+	/* End getters, begin setters */
+	/****************************************************/
+	
+	public boolean setPaid(Date datePaid){
+		if(datePaid.isAfter(dueDate)){
+			return false;
+		}else{
+			paidDate = datePaid;
+			return true;
+		}
 	}
 
 	public String toString(){
