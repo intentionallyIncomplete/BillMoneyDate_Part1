@@ -12,7 +12,7 @@ public class Date {
 	/* 2014 and 2024. The class variables will only be 	 */
 	/* set if all these conditions are met true.		 */
 	/*****************************************************/
-	public Date(int day, int month, int year){
+	public Date(int month, int day, int year){
 
 		if(day < 1 || day > 31){
 			System.out.println("invalid day: " + day);

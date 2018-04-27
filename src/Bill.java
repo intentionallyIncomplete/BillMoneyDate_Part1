@@ -77,7 +77,7 @@ public class Bill {
 		if(datePaid.isAfter(dueDate)){
 			return false;
 		}else{
-			paidDate = datePaid;
+			this.paidDate = datePaid;
 			return true;
 		}
 	}
@@ -91,17 +91,39 @@ public class Bill {
 		if(isPaid()){
 			return false;
 		}else{
-			dueDate = nextDate;
+			this.dueDate = nextDate;
 			return true;
 		}
 	}
 
+	
+	public boolean setAmount(Money amount){
+		if(isPaid()){
+			assert(amount != null);
+			return false;
+		}else{
+			this.amount = amount;
+			return true;
+		}
+	}
+
+	public void setOriginator(String originator){
+		this.originator = originator;
+	}
 	//custom toString method will get the amount of money,
 	//the dueDate, the paidDate, and the name of the company
 	//doing the billing and tell the person the status of the 
-	//transactions.
+	//transactions. The return String is different depending on the 
+	//condition of isPaid. When true, it will print the first String,
+	//else it will print the other.
 	public String toString(){
-		return "amount: $" + amount.getMoney() + " dueDate: " + dueDate.toString() + 
-				" originator: " + originator;
+		if(isPaid()){
+			return "Amount Due: " + this.amount + "\nCurrent Due Date: "
+					+ this.dueDate.toString() + "\nOrigin of Bill: " + this.originator
+					+ "\nDate Paid: " + this.paidDate.toString();
+		}else{
+			return "Amount Due: " + this.amount + "\nCurrent Due Date: "
+					+ this.dueDate.toString() + "\nOrigin of Bill: " + this.originator;
+		}
 	}
 }

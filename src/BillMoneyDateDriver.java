@@ -24,7 +24,7 @@ public class BillMoneyDateDriver
 		//money1.setMoney(30,50);
 
 		//print out the two test objects
-		//System.out.println("Money objects output:");
+		//System.out.println("-------------Money objects output:------------");
 		//System.out.println(money1);
 		//System.out.println(money2);
 
@@ -45,8 +45,6 @@ public class BillMoneyDateDriver
 		/****************************************************/
 		/* Testing the Date class */
 		/****************************************************/
-		//feed in day --> month --> year
-		//print out month --> day --> year
 		Date date1 = new Date(1,1,2016);
 		Date date2 = new Date(1,1,2016);
 
@@ -71,8 +69,9 @@ public class BillMoneyDateDriver
 		/* Testing the Bill class							 */
 		/*****************************************************/
 		//Construct some bills
-		Money amount = new Money(20);
-		Date dueDate = new Date(30, 4, 2017);
+		Money amount = new Money(50);
+		Date dueDate = new Date(4, 30, 2017);
+		Date datePaid = new Date(5, 15, 2017);
 		
 		//instantiating a new object bill1 with values
 		//from the Money object 'amount' and the Date object
@@ -81,15 +80,15 @@ public class BillMoneyDateDriver
 		Bill bill1 = new Bill(amount, dueDate, "The phone company");
 		Bill bill2 = new Bill(bill1);
 		
-		//
-		bill2.setDueDate(new Date(5, 30, 2007));
-		//amount.setMoney(31, 99);
-		//dueDate.setDay(29);
-
-		System.out.println("Bill objects output:");
-		System.out.println(bill1);
-		System.out.println(bill2); 
-		//System.out.println(bill3);
+		//using the setDueDate method that resets the
+		//dueDate value on the conditions of the isPaid
+		//method in the Bill class.
+		bill2.setDueDate(new Date(5, 30, 2017));
+		bill2.setPaid(datePaid);
+		
+		System.out.println("----------Bill objects output:------------");
+		//System.out.println(bill1);
+		System.out.println(bill2);
 
 	}
 }
