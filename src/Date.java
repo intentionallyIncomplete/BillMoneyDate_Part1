@@ -13,7 +13,7 @@ public class Date {
 	/* set if all these conditions are met true.		 */
 	/*****************************************************/
 	public Date(int day, int month, int year){
-		
+
 		if(day < 1 || day > 31){
 			System.out.println("invalid day: " + day);
 			assert(day > 0);
@@ -55,7 +55,8 @@ public class Date {
 	//checking for equivalence
 	public boolean equals(Object date){
 		//using the custom toString method on both
-		//objects is necessary to compare them
+		//objects is necessary to be able to compare them
+		//in the same format
 		if(this.toString().equals(date.toString())){
 			System.out.println("the two dates are the same");
 			return true;
@@ -64,7 +65,6 @@ public class Date {
 			return false;
 		}
 	}
-
 
 	/*****************/
 	/* Begin getters */

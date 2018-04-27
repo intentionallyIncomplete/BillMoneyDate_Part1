@@ -41,7 +41,7 @@ public class BillMoneyDateDriver
 		//        System.out.println("new money1: " + money1);
 		//          money1.add(money2);
 		//          System.out.println(money1);
-		
+
 		/****************************************************/
 		/* Testing the Date class */
 		/****************************************************/
@@ -49,23 +49,24 @@ public class BillMoneyDateDriver
 		//print out month --> day --> year
 		Date date1 = new Date(1,1,2016);
 		Date date2 = new Date(1,1,2016);
-		
+
 		assert(date1 != null);
 		assert(date2 != null);
-		
+
 		System.out.println(date1);
 		System.out.println(date2);
-		
+
 		//checking the isAfter functionality
 		//comments on method functionality in Date class
 		//System.out.println(date2.isAfter(date1));
-		
+
 		System.out.println(date2.equals(date1));
 
 		//Construct some bills
-		//        Money amount = new Money(20);
-		//        Date dueDate = new Date(4, 30, 2007);
-		//        Bill bill1 = new Bill(amount, dueDate, "The phone company");
+		Money amount = new Money(20);
+		//day, month, year
+		Date dueDate = new Date(30, 4, 2017);
+		Bill bill1 = new Bill(amount, dueDate, "The phone company");
 		//       
 		//        Bill bill2 = new Bill(bill1);
 		//        bill2.setDueDate(new Date(5, 30, 2007));
@@ -73,8 +74,8 @@ public class BillMoneyDateDriver
 		//        dueDate.setDay(29);
 		//        Bill bill3 = new Bill(amount, dueDate, "The record company");
 		//        
-		//        System.out.println("Bill objects output:");
-		//        System.out.println(bill1);
+		System.out.println("Bill objects output:");
+		System.out.println(bill1);
 		//        System.out.println(bill2);
 		//        System.out.println(bill3);
 
