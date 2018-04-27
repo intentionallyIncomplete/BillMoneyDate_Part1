@@ -64,7 +64,7 @@ public class BillMoneyDateDriver
 		
 		//testing the set methods for invariants
 		//date1.setDay(32);
-		date1.setMonth(13);
+		//date1.setMonth(13);
 		//date1.setYear(1995);
 
 		/*****************************************************/
@@ -72,19 +72,23 @@ public class BillMoneyDateDriver
 		/*****************************************************/
 		//Construct some bills
 		Money amount = new Money(20);
-		//day, month, year
 		Date dueDate = new Date(30, 4, 2017);
+		
+		//instantiating a new object bill1 with values
+		//from the Money object 'amount' and the Date object
+		//'dueDate'. Then copy it using the copy ctor in
+		//the Bill class.
 		Bill bill1 = new Bill(amount, dueDate, "The phone company");
-
 		Bill bill2 = new Bill(bill1);
-		//bill2.setDueDate(new Date(5, 30, 2007));
+		
+		//
+		bill2.setDueDate(new Date(5, 30, 2007));
 		//amount.setMoney(31, 99);
 		//dueDate.setDay(29);
-		Bill bill3 = new Bill(amount, dueDate, "The record company");
 
 		System.out.println("Bill objects output:");
 		System.out.println(bill1);
-		System.out.println(bill2); //testing copy ctor
+		System.out.println(bill2); 
 		//System.out.println(bill3);
 
 	}

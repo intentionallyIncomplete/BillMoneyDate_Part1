@@ -82,10 +82,12 @@ public class Date {
 		return year;
 	}
 
-	/****************************/
-	/* End getters, begin setters*/
-	/****************************/
-
+	/*****************************************************/
+	/* End getters, begin setters. These setters include */
+	/* the validation of the date when called from the	 */
+	/* BillMoneyDateDriver class and prevent illegal	 */
+	/* dates or the changing of dates to curb due dates	 */
+	/*****************************************************/
 	public void setDay(int day){
 		if(day < 1 || day > 31){
 			System.out.println("invalid day " + day + "\nProgram Exiting...");
@@ -110,6 +112,9 @@ public class Date {
 	public void setYear(int year){
 		if(year < 2014 || year > 2024){
 			System.out.println("invalid year " + year + "\nProgram Exiting...");
+			assert(year < 2024);
+			assert(year > 0);
+			System.exit(0);
 		}else{
 			this.year = year;
 		}

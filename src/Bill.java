@@ -36,33 +36,43 @@ public class Bill {
 		this.paidDate = toCopy.paidDate;
 		this.originator = toCopy.originator;
 	}
-	
+
 	/****************************************************/
-	/* This method will check if the datePaid value		*/
-	/* is after the dueDate value. This method will call*/
-	/* the isAfter method from the Date class to check. */
+	/* This method will check if the amount of money 	*/
+	/* returned from Money is 0. If that's true, then	*/
+	/* return true, else the value is GT than 0 and must*/
+	/* return false.									*/
 	/****************************************************/
-//	public boolean isPaid(){
-//		if()
-//	}
+	public boolean isPaid(){
+		if(amount.getMoney() == 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	/****************************************************/
 	/* Begin getters*/
 	/****************************************************/
 	public Money getAmount(){
 		return amount;
 	}
-	
+
 	public Date getDueDate(){
 		return dueDate;
 	}
-	
+
 	public String getOriginator(){
 		return originator;
 	}
 	/****************************************************/
 	/* End getters, begin setters */
 	/****************************************************/
-	
+	//will use the isAfter method from the Date class
+	//to compare the dueDate object value to the 
+	//datePaid object's value. If the dueDate object
+	//returns false from isAfter, then return false for setPaid
+	//else update the paidDate with the value of datePaid 
+	//and return true.
 	public boolean setPaid(Date datePaid){
 		if(datePaid.isAfter(dueDate)){
 			return false;
@@ -72,6 +82,24 @@ public class Bill {
 		}
 	}
 
+	//this boolean method will check for the next
+	//provided date value. if the method isPaid is true,
+	//then the dueDate is irrelevant and the method returns false
+	//or else if the bill is not paid, then update the dueDate
+	//to the provided value of nextDate.
+	public boolean setDueDate(Date nextDate){
+		if(isPaid()){
+			return false;
+		}else{
+			dueDate = nextDate;
+			return true;
+		}
+	}
+
+	//custom toString method will get the amount of money,
+	//the dueDate, the paidDate, and the name of the company
+	//doing the billing and tell the person the status of the 
+	//transactions.
 	public String toString(){
 		return "amount: $" + amount.getMoney() + " dueDate: " + dueDate.toString() + 
 				" originator: " + originator;
