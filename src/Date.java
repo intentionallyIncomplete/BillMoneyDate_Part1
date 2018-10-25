@@ -16,7 +16,7 @@ public class Date {
 
 		if(day < 1 || day > 31){
 			System.out.println("invalid day: " + day);
-			assert(day > 0);
+			//assert(day > 0);
 			System.exit(0);
 		}else if(month < 1 || month > 12){
 			System.out.println("invalid month: "+ month);

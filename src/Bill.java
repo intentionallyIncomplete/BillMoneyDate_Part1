@@ -1,12 +1,14 @@
-
+/**
+ * Class Description:
+ * @author Ian Bryan
+ * @version 10/25/2018
+ * 
+ * */
 public class Bill {
 
-	/****************************************************/
-	/* These are objects from the Money and Date class  */
-	/* the ctor for this class will be working with the */
-	/* assignment of the object's values by the args    */
-	/* values passed in through it.						*/
-	/****************************************************/
+	/*
+	 * 
+	 * */
 	private Money amount;
 	private Date dueDate;
 	private Date paidDate;
