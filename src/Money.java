@@ -78,9 +78,10 @@ public class Money {
 		this.cents = cents;
 	}
 	
-	//will add the handed Money object's value
-	//to the count of the current object's value
-	//individually for dollars and cents.
+	/**
+	 * @param other - {adds the copy of some Money's dollars and cents to an updated Money object}
+	 * Will add the handed Money object's value to the count of the current object's value individually for dollars and cents.
+	 */
 	public void add(Money other){
 		this.dollars += other.dollars;
 		this.cents += other.cents;
@@ -96,14 +97,14 @@ public class Money {
 	}
 	
 	/**
-	 * @return
+	 * @return - {Current dollar value amount}
 	 */
 	public int getDollars(){
 		return this.dollars;
 	}
 	
 	/**
-	 * @return
+	 * @return - {integer value of current cents}
 	 */
 	public int getCents(){
 		return (int)this.cents;
