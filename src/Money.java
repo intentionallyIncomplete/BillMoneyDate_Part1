@@ -119,8 +119,10 @@ public class Money {
 		this.cents = cents;
 	}
 
-	//String.format(format, arg) is there to set the returned amount
-	//to display as a number with two decimal places
+	/**
+	 * toString() method override from the immutable String class.
+	 * */
+	@Override
 	public String toString(){
 		return "$" + String.format("%.2f", getMoney());
 	}
