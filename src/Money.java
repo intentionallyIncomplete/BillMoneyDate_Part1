@@ -49,12 +49,13 @@ public class Money {
 	 * equals() method checks for if the passed in object
 	 * has undergone changes.
 	 * */
-	public boolean equals(Object o){
-		if(this == o){
-			System.out.println("The amount " + this + " is equal to " + o);
+	public boolean equals(Object that){
+		if(this.getDollars() == ((Money)that).getDollars()
+				&& this.getCents() == ((Money)that).getCents()){
+			//System.out.println("The amount " + this + " is equal to " + that);
 			return true;
 		}else{
-			System.out.println("The amount " + this + " is not equal to " + o);
+			//System.out.println("The amount " + this + " is not equal to " + that);
 			return false;
 		}
 	}
@@ -116,8 +117,12 @@ public class Money {
 	 * Setter for any instance of Money that requires an update to the values of dollar or cents.
 	 */
 	public void setMoney(int dollars, int cents){
-		this.dollars = dollars;
-		this.cents = cents;
+		if(dollars >= 0 && cents >= 0) {
+			this.dollars = dollars;
+			this.cents = cents;
+		}else {
+			System.out.println("The value entered cannot be negative.\nExiting**");
+		}
 	}
 
 	/**
