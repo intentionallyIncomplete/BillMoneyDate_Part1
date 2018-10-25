@@ -1,25 +1,30 @@
+
 /**
- HW3.java: Simple driver to test Money, Date, and Bill classes
- @author Rob Nash, borrowed from cfolsen
+ * Class Description:
+ * @author Ian Bryan
+ *
+ * BillMoneyDateDriver{} is an interchangeable unit case test class for JUnit testing. This class only has a static main
+ * for executing the functions found in each other class.
  */
 public class BillMoneyDateDriver
 {
+	
 	/**
-     main driver function
-     pre:  none
-     post: exercises the methods in Bill, Money, and Date (not done)
+	 * @param args
+	 * static main() calls all methods from all classes for testing.
 	 */
 	public static void main(String[] args)
 	{
-		//Construct some money
+		/*
+		 * Testing the Money Class
+		 * Money1 | Money2 | Money3
+		 * Testing first constructor with integer for dollar amount |
+		 * Testing second constructor with 
+		 */
+		//Constructing Money objects with arguments for each constructor
 		Money money1 = new Money(10);
-		//Money money1 = new Money(10,1);
-		//Money money1 = new Money(10,99);
-		//Money money1 = new Money(10,101);
-		//Money money2 = new Money(12);
-
-		//useful for when needed but using two objects to play with seemed to work out alright.
-		//Money money3 = new Money(11);
+		Money money2 = new Money(10,101);
+		Money money3 = money1;
 
 		//money1.setMoney(30,50);
 
