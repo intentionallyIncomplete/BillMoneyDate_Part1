@@ -3,23 +3,29 @@
  * @author Ian Bryan
  * @version 10/25/2018
  * 
+ * Bill stores both Money and Date objects to use when deciding bill amounts to produce.
  * */
 public class Bill {
 
-	/*
-	 * 
-	 * */
+	/**
+	 * Class Data Members
+	 * Money - some value represented in dollars and cents
+	 * Date - {dueDate},{paidDate} - some dates that are used when determining if the pill is outstanding.
+	 * Originator - string value representation of the company/person to pay
+	 */
 	private Money amount;
 	private Date dueDate;
 	private Date paidDate;
 	private String originator;
 
-	/*****************************************************/
-	/* The 'amount' and 'dueDate' values are assigned	 */
-	/* to the private objects Money and Date respectively*/
-	/* a new Date object is created for the paidDate and */
-	/* set to a null value.								 */
-	/*****************************************************/
+
+	/**
+	 * @param amount
+	 * @param dueDate
+	 * @param originator
+	 * 
+	 * A value and date are assigned to a Bill along with the name of the entity to pay out to.
+	 */
 	public Bill(Money amount, Date dueDate, String originator){
 		this.amount = amount;
 		this.dueDate = dueDate;
@@ -27,11 +33,11 @@ public class Bill {
 		this.originator = originator;
 	}
 
-	/*****************************************************/
-	/* This is the copy ctor for the Bill class. It will */
-	/* basically this just sets the current value of the */
-	/* objects to a copy of the object, value by value	 */
-	/*****************************************************/
+
+	/**
+	 * @param toCopy
+	 * Assuming all other classes have copy constructors, this is the same principle of copying.
+	 */
 	public Bill(Bill toCopy){
 		this.amount = toCopy.amount;
 		this.dueDate = toCopy.dueDate;
@@ -39,12 +45,10 @@ public class Bill {
 		this.originator = toCopy.originator;
 	}
 
-	/****************************************************/
-	/* This method will check if the amount of money 	*/
-	/* returned from Money is 0. If that's true, then	*/
-	/* return true, else the value is GT than 0 and must*/
-	/* return false.									*/
-	/****************************************************/
+
+	/**
+	 * @return boolean - {If the value of the value of Money (amount) is 0, then the bill is paid}
+	 */
 	public boolean isPaid(){
 		if(this.amount.getMoney() == 0){
 			return true;
@@ -53,38 +57,31 @@ public class Bill {
 		}
 	}
 
-	//checking the current bill with an "updated"
-	//one that may have different values.
+	/**
+	 * @return boolean - {Using the toString override to set each object as a String value for comparison}
+	 * */
 	public boolean equals(Object toCompare){
-		if(this.toString().equals(toCompare.toString())){
+		if(this.toString().equals(toCompare)){
 			return true;
 		}else{
 			return false;
 		}
 	}
-	/****************************************************/
-	/* Begin getters*/
-	/****************************************************/
-	public Money getAmount(){
-		return amount;
-	}
 
-	public Date getDueDate(){
-		return dueDate;
-	}
+	/**@return Money*/
+	public Money getAmount(){return this.amount;}
 
-	public String getOriginator(){
-		return originator;
-	}
-	/****************************************************/
-	/* End getters, begin setters */
-	/****************************************************/
-	//will use the isAfter method from the Date class
-	//to compare the dueDate object value to the 
-	//datePaid object's value. If the dueDate object
-	//returns false from isAfter, then return false for setPaid
-	//else update the paidDate with the value of datePaid 
-	//and return true.
+	/**@return Date*/
+	public Date getDueDate(){return this.dueDate;}
+
+	/**@return originator - {Entity in string format of who to pay to or who is doing the billing}*/
+	public String getOriginator(){return originator;}
+
+	/**
+	 * @param datePaid
+	 * @return boolean - {Depends on condition}
+	 * Will use the isAfter method from the Date class to compare the dueDate object value to the datePaid object's value.
+	 */
 	public boolean setPaid(Date datePaid){
 		if(datePaid.isAfter(dueDate)){
 			return false;
@@ -94,11 +91,13 @@ public class Bill {
 		}
 	}
 
-	//this boolean method will check for the next
-	//provided date value. if the method isPaid is true,
-	//then the dueDate is irrelevant and the method returns false
-	//or else if the bill is not paid, then update the dueDate
-	//to the provided value of nextDate.
+	/**
+	 * @param nextDate
+	 * @return boolean - {Depends on condition}
+	 * This boolean method will check for the next provided date value.
+	 * If isPaid returns true, then everything else is irrelevent since the bill is paid.
+	 * If isPaid returns false, set dueDate to the handed nextDate for evaluation by Date.
+	 */
 	public boolean setDueDate(Date nextDate){
 		if(isPaid()){
 			return false;
@@ -108,13 +107,15 @@ public class Bill {
 		}
 	}
 
-	//this method will take in a new Money object
-	//that has a value. Then a condition is checked
-	//that if that new value is 0, the bill is paid,
-	//else the amount is set to the latest value.
+	/**
+	 * @param amount
+	 * @return
+	 * Take in a new Money object that has a value. 
+	 * Condition is checked for if handed value is 0 - bill is paid,
+	 * else amount is set to the last Money value in memory
+	 */
 	public boolean setAmount(Money amount){
 		if(isPaid()){
-			assert(amount != null);
 			return false;
 		}else{
 			this.amount = amount;
@@ -122,19 +123,19 @@ public class Bill {
 		}
 	}
 
+	/**
+	 * @param originator
+	 * simple setter
+	 */
 	public void setOriginator(String originator){
 		this.originator = originator;
 	}
 
-	/****************************************************/
-	/* End setters */
-	/****************************************************/
-	//custom toString method will get the amount of money,
-	//the dueDate, the paidDate, and the name of the company
-	//doing the billing and tell the person the status of the 
-	//transactions. The return String is different depending on the 
-	//condition of isPaid. When true, it will print the first String,
-	//else it will print the other.
+	/**
+	 * The return String is different depending on the condition of isPaid. 
+	 * When true, it will print the first String, else it will print the other.
+	 */
+	@Override
 	public String toString(){
 		if(isPaid()){
 			assert(paidDate != null);
