@@ -52,15 +52,18 @@ public class Date {
 
 	
 	/**
-	 * @param compareToDate
-	 * @return boolean - {Always false unless handed date is greater by at least 1 day}
+	 * @param compareTo
+	 * @return boolean - {Always return true if handed date is after the other version by minimum 1 day}
 	 */
-	public boolean isAfter(Date compareToDate){
-		if(compareToDate.day > day && compareToDate.month >= month
-				&& compareToDate.year >= year){
-			return true;
-		}else{
+	public boolean isAfter(Date compareTo){
+		if(this.day < ((Date)compareTo).getDay() && this.month < ((Date)compareTo).getMonth()
+				&& this.year < ((Date)compareTo).getYear()){
 			return false;
+		}else if(this.day == ((Date)compareTo).getDay() && this.month == ((Date)compareTo).getMonth()
+				&& this.year == ((Date)compareTo).getYear()){
+			return false;
+		}else {
+			return true;
 		}
 	}
 

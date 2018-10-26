@@ -65,24 +65,39 @@ public class BillMoneyDateDriver
 		 * Testing with copy constructor|
 		 * */
 		Date date1 = new Date(6,6,2017);
-		Date date2 = new Date(1,1,2016);
+		Date date2 = new Date(1,1,2020);
 		Date date3 = date1;
-
-
+		
+		//Printing current Dates
+//		System.out.println("Date date1 = new Date(6,6,2017): " + date1.toString());
+//		System.out.println("Date date2 = new Date(1,1,2020): " + date2.toString());
+//		System.out.println("Date date3 = date1: " + date3.toString());
+//		
+//		//Testing the getters and setters
+//		System.out.println("Setting date1 to new values of (10,20,2019)");
+//		date1.setDay(20);
+//		date1.setMonth(10);
+//		date1.setYear(2019);
+//		System.out.println("Current value of date1 after setting new values through set() methods: " + date1.toString());
+//		//System.out.println("Setting date1 to new values of (-10,2000,1) --> This should give us some errors for each one we try to set");
+////		date1.setDay(2000); //won't make it to month because program exits after fail in setMonth()
+////		date1.setMonth(-10);
+////		date1.setYear(1);
+//		
+//		//Testing equals()
+//		System.out.println("Is date1 equal to date2?: " + date1.equals(date2));
+//		System.out.println("Is date2 equal to date3?: " + date2.equals(date3));
+//		System.out.println("Is date3 equal to date1?: " + date3.equals(date1));
+//		
+//		//Testing isAfter()
+//		System.out.println("Is date1 after date3?: " + date1.isAfter(date3));
+//		System.out.println("Is date2 after date3?: " + date2.isAfter(date3));
+//		System.out.println("Is date3 after date2?: " + date3.isAfter(date2));
+		
 		/**
 		 * Testing the Bill class
-		 * 
-		 * 
+		 * bill1 | bill2 | bill3
 		 * */
-//		//Construct some bills
-//		Money amount = new Money(50);
-//		Date dueDate = new Date(4, 30, 2017);
-//		Date datePaid = new Date(5, 15, 2017);
-//
-//		//instantiating a new object bill1 with values
-//		//from the Money object 'amount' and the Date object
-//		//'dueDate'. Then copy it using the copy ctor in
-//		//the Bill class.
 //		Bill bill1 = new Bill(amount, dueDate, "The phone company");
 //		Bill bill2 = new Bill(bill1);
 //
